@@ -109,7 +109,7 @@ function ConnectCard () {
     })
     .then(res => {
       console.log(res)
-      console.log('exist')
+      console.log('exists')
     })
     .catch(err => {
       setExistInDB(true)
