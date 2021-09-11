@@ -82,7 +82,7 @@ function ConnectCard () {
         plotBal = plotRes.data.result
         axios({
           method: 'post',
-          url: 'http://localhost:8082/user',
+          url: 'https://hivecraft-api.herokuapp.com/user',
           data: {
             _id: mojangUUid,
             mojangId: mojangUUid,
@@ -103,7 +103,7 @@ function ConnectCard () {
   function checkIfAlreadyConnected() {
     axios({
       method: 'get',
-      url: `http://localhost:8082/user/wallet/${wallet.account}`,
+      url: `https://hivecraft-api.herokuapp.com/user/wallet/${wallet.account}`,
     })
     .then(res => {
       console.log(res)
