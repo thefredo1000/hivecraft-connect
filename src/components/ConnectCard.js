@@ -57,7 +57,7 @@ function ConnectCard () {
   window.ethereum.on('chainChanged', (chainId) => setXDAIChain(!(chainId === '0x64')))
 
   function linkWithMojang (address) {
-    let mojangUUid = window.location.pathname.replace(/^\/+|\/+$/g, '')
+    let mojangUUid = window.location.hash.replace(/^\/+|\/+$/g, '').substring(2)
     console.log(mojangUUid)
     var hnyBal;
     var plotBal;
