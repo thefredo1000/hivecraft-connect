@@ -13,7 +13,6 @@ function ConnectCard () {
   const wallet = useWallet()
 
   const [isXDAIChain, setXDAIChain] = useState();
-  const [chainId, setChainId] = useState();
   const [existInDB, setExistInDB] = useState(false);
   const [response, setResponse] = useState();
 
@@ -26,7 +25,6 @@ function ConnectCard () {
     }
     window.ethereum.request(chainIdData).then(res => {
       setXDAIChain(!(res === '0x64'))
-      setChainId(res)
     })
   }, []);
 
@@ -84,7 +82,7 @@ function ConnectCard () {
         plotBal = plotRes.data.result
         axios({
           method: 'post',
-          url: 'https://hivecraft-api.herokuapp.com//user',
+          url: 'http://localhost:8082/user',
           data: {
             _id: mojangUUid,
             mojangId: mojangUUid,
@@ -105,11 +103,11 @@ function ConnectCard () {
   function checkIfAlreadyConnected() {
     axios({
       method: 'get',
-      url: `https://hivecraft-api.herokuapp.com//user/wallet/${wallet.account}`,
+      url: `http://localhost:8082/user/wallet/${wallet.account}`,
     })
     .then(res => {
       console.log(res)
-      console.log('exists')
+      console.log('exist')
     })
     .catch(err => {
       setExistInDB(true)

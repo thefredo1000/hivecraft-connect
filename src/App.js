@@ -1,18 +1,14 @@
 import React from 'react' 
 import {
-  BrowserRouter as Router,
-  Route,
+  HashRouter as Router,
 } from "react-router-dom";
 
-import { Card, Grid, CardActions } from '@material-ui/core';
-import CardHeader from '@material-ui/core/CardHeader';
+import { Grid } from '@material-ui/core';
 import ConnectCard from './components/ConnectCard'
 
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import './App.css'
-
-import PressStart2P from './fonts/PressStart2P-Regular.ttf';
 
 function App() {
 
@@ -52,21 +48,18 @@ function App() {
   });
   return (
     <Router>
-      <Route path={'/:topicId'}>
-        <br />
-        <Grid container justifyContent="center">
-          <ThemeProvider theme={theme}>
-            <div className="card">
-              <div className="header">
-                <h1>Connect to Hivecraft</h1>
-                <h3>Use your xDAI wallet with Metamask</h3>
-              </div>
-              <br />
-              <ConnectCard />
+      <Grid container justifyContent="center">
+        <ThemeProvider theme={theme}>
+          <div className="card">
+            <div className="header">
+              <h1>Connect to Hivecraft</h1>
+              <h3>Use your xDAI wallet with Metamask</h3>
             </div>
-          </ThemeProvider>
-        </Grid>
-      </Route>
+            <br />
+            <ConnectCard />
+          </div>
+        </ThemeProvider>
+      </Grid>
     </Router>
   );
 }
